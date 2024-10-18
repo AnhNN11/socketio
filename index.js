@@ -31,7 +31,7 @@ subRedis.on("error", (err) => {
 io.on("connection", async (socket) => {
   const { id } = socket;
 
-  socket.on("join-room", async (room: string) => {
+  socket.on("join-room", async (room) => {
     console.log("User joined room:", room);
 
     const subscribedRooms = await redis.smembers("subscribed-rooms");
